@@ -5,13 +5,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/',
-      name: 'content',
-      component: ContentView,
-    },
-    {
-      path: '/:mydata',
-      name: 'content2',
+      path: '/:mydata?',
       component: ContentView,
     },
   ],

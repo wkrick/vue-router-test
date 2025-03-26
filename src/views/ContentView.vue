@@ -2,40 +2,29 @@
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
-const mydata = ref(route.params.mydata || "");
+// initialize state from params if available
+const mydata = ref(route.params.mydata || "")
 
+/*
+// this is not needed unless other things can update the URL
 watch(
-  () => route.params.mydata,
-  (newVal, oldVal) => {
-    console.log("watch params oldVal: ", oldVal)
+  () => route.params.mydata as string,
+  async newVal => {
     console.log("watch params newVal: ", newVal)
-    mydata.value = newVal;
-    // Perform any other actions needed when the data changes
+    mydata.value = newVal
   }
 )
+*/
 
-watch(mydata, (newVal, oldVal) => {
-  console.log("watch mydata oldVal: ", oldVal)
-  console.log("watch mydata newVal: ", newVal)
-
-  if (newVal) {
-    router.push({
-      name: "content2",
-        params: {
-          mydata: newVal,
-        },
-    });
-  } else {
-    mydata.value = ""
-    router.push({
-      name: "content",
-    });
+watch(
+  mydata, (newVal) => {
+    console.log("watch mydata newVal: ", newVal)
+    router.push( "/" + newVal );
   }
-
-});
+)
 
 </script>
 
