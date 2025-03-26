@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useRouteParams } from '@vueuse/router'; 
+import { useRouteParams } from '@vueuse/router'
 
-const mydata = useRouteParams('mydata', '') 
+const mydata = useRouteParams('mydata', '')
 </script>
 
 <template>
