@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import ContentView from '../views/ContentView.vue'
+import InventoryGUI from '@/components/InventoryUI.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/:mydata?',
-      component: ContentView,
+      path: '/:state?',
+      component: InventoryGUI,
     },
   ],
 })
