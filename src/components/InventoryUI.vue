@@ -18,8 +18,7 @@ watch(
   () => route.params['state'],
   async (newVal) => {
     console.log('watch URL params - new value: ', newVal)
-    const s = (route.params['state'] || '') as string
-    build.state = s ? decompressFromBase64URL(s) : ''
+    build.state = newVal ? decompressFromBase64URL(newVal as string) : ''
   },
 )
 
